@@ -4,6 +4,7 @@ import {WordModel} from "../models/word/Word.model";
 import {RelationModel} from "../models/relation/Relation.model";
 import {DictionaryModel} from "../models/dictionary/Dictionary.model";
 import {IDictionaryModel} from "../models/dictionary/Dictionary.interface";
+import {IWordModel} from "../models/word/Word.interface";
 
 export class TranslatorService {
 
@@ -57,7 +58,7 @@ export class TranslatorService {
                     dictionaries: [dictionary._id]
                 });
                 this.report.items.created++;
-                this.stream.info(this.report.items.created.toString());
+                this.stream.info('items' + this.report.items.created.toString());
             }
         }
     }
@@ -90,7 +91,7 @@ export class TranslatorService {
                     dictionaries: [dictionary._id]
                 });
                 this.report.tuples.created++;
-                this.stream.info(this.report.tuples.created.toString());
+                this.stream.info('tuples' + this.report.tuples.created.toString());
             }
         }
     }
@@ -102,20 +103,33 @@ export class TranslatorService {
             const relation = relations[i];
             const from = await WordModel.findOne({ text: relation[0] }).lean();
             const what = await WordModel.findOne({ text: relation[1] }).lean();
-            const to = await WordModel.findOne({ text: relation[2] }).lean();
-            if (to && from && what) {
-                const one = {
-                    from: from._id.toString(),
-                    to: to._id.toString(),
-                    what: what._id.toString(),
-                    dictionaries: [dictionary._id]
-                };
-                const existedRelation = await RelationModel.findOne(one);
-                if (!existedRelation) {
-                    await RelationModel.create(one);
-                    this.report.relations.created++;
-                    this.stream.info(this.report.relations.created.toString());
+
+            if (typeof relation[2] === 'string') {
+                const to = await WordModel.findOne({ text: relation[2] }).lean();
+                await this.checkAndCreate(from, what, to, dictionary);
+            } else if (relation[2] && relation[2].length && relation[2].length > 0) {
+                const wordsTo = relation[2];
+                for (let j = 0, maxWordsTo = wordsTo.length; j < maxWordsTo; j++) {
+                    const to = await WordModel.findOne({ text: relation[2][j] }).lean();
+                    await this.checkAndCreate(from, what, to, dictionary);
                 }
+            }
+
+        }
+    }
+    private async checkAndCreate(from: IWordModel, what: IWordModel, to: IWordModel, dictionary: IDictionaryModel) {
+        if (to && from && what) {
+            const one: any = {
+                from: from._id.toString(),
+                to: to._id.toString(),
+                what: what._id.toString(),
+            };
+            const existedRelation = await RelationModel.findOne(one);
+            one.dictionaries = [dictionary._id];
+            if (!existedRelation) {
+                await RelationModel.create(one);
+                this.report.relations.created++;
+                this.stream.info('relations ' + this.report.relations.created.toString());
             }
         }
     }

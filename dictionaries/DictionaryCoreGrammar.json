@@ -5,6 +5,7 @@
     "version": "0.0.1",
     "words": [
         "it is a(n)",
+        "has categories",
         "entry",
         "dictionary",
         "part of speech",
@@ -115,6 +116,154 @@
             "C2 (Proficiency)"
     ],
     "tuples": [],
-    "relations": [],
+    "relations": [
+        [
+            "part of speech",
+            "has categories",
+            [
+                "noun",
+                "pronoun",
+                "verb",
+                "adjective",
+                "adverb","definite(article)",
+                "conjunction",
+                "article (determiner)",
+                "exclamation",
+                "infinitive marker",
+                "number"
+            ]
+        ],
+        [
+            "noun",
+            "has categories",
+            ["common noun", "proper noun", "countable noun", "uncountable noun" ]
+        ],
+        [
+            "pronoun",
+            "has categories",
+            [
+                "personal pronoun",
+                "first person",
+                "second person",
+                "third person",
+                "reflexive pronoun",
+                "demonstrative pronoun",
+                "interrogative pronoun",
+                "indefinite pronoun",
+                "relative pronoun"
+            ]
+        ],
+        [
+            "verb",
+            "has categories",
+            [
+                "infinitive verb",
+                "regular verb",
+                "irregular verb",
+                "modal verb",
+                "intransitive verb",
+                "transitive verb",
+                "often passive verb",
+                "often reflexive verb",
+                "auxiliary verb"
+            ]
+        ],
+        [
+            "tenses",
+            "has categories",
+            [
+                "Present Simple tenses",
+                "Past Simple tenses",
+                "Future Simple tenses",
+
+                "Present Perfect tenses",
+                "Past Perfect tenses",
+                "Future Perfect tenses",
+
+                "Present Continuous tenses",
+                "Past Continuous tenses",
+                "Future Continuous tenses",
+
+                "Present Perfect Continuous tenses",
+                "Past Perfect Continuous tenses",
+                "Future Perfect Continuous tenses"
+            ]
+        ],
+        [
+            "adjective",
+            "has categories",
+            [
+                "always before noun",
+                "never before noun",
+                "always after noun"
+            ]
+        ],
+        [
+            "type of text",
+            "has categories",
+            [
+                "word",
+                "sentence",
+                "idiom",
+                "phrasal verb",
+                "alphabet",
+                "symbol",
+                "collocation"
+            ]
+        ],
+        [
+            "usage label",
+            "has categories",
+            [
+                "informal usage",
+                "formal usage",
+                "very formal usage",
+                "spoken usage",
+                "humorous usage",
+                "literary usage",
+                "old-fashioned usage",
+                "trademark usage"
+            ]
+        ],
+        [
+            "Theme",
+            "has categories",
+            [
+                "3000",
+                "the bathroom",
+                "the body",
+                "the car",
+                "the classroom",
+                "clothes",
+                "colours",
+                "food",
+                "fruit and vegetables",
+                "hair",
+                "the kitchen",
+                "the living room",
+                "the office",
+                "quantities",
+                "sports",
+                "family",
+                "food and eating",
+                "the internet",
+                "transport",
+                "Geographical",
+                "Common First Name"
+            ]
+        ],
+        [
+            "English Study Level",
+            "has categories",
+            [
+                "A1 (Beginner)",
+                "A2 (Elementary English)",
+                "B1 (Intermediate English)",
+                "B2 (Upper Intermediate English)",
+                "C1 (Advanced English)",
+                "C2 (Proficiency)"
+            ]
+        ]
+    ],
     "contexts": []
 }
