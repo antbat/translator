@@ -1,8 +1,12 @@
 {
+    "name": "Core",
     "author": "Anton Batalin",
-    "items": [
+    "description": "The core set of knowledge base (dictionary)",
+    "version": "0.0.1",
+    "words": [
         "it is a(n)",
         "entry",
+        "dictionary",
         "part of speech",
             "noun",
                 "common noun",

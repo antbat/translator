@@ -1,0 +1,21 @@
+{
+    "mongoDB": {
+        "connectionString": "mongodb://localhost/core",
+        "collection": {
+            "word": "word",
+            "relation": "relation",
+            "dictionary": "dictionary"
+        }
+    },
+    "elasticSearch": {
+        "index": {
+            "word": "word",
+            "relation": "relation"
+        },
+        "options": {
+            "node": "http://localhost:9200",
+            "log": "debug",
+            "keepAlive": true
+        }
+    }
+}

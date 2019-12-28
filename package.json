@@ -9,6 +9,16 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "mongoose": "^5.8.2"
+    "@elastic/elasticsearch": "^7.5.0",
+    "config": "^3.2.4",
+    "mongoose": "^5.8.2",
+    "mongoose-beautiful-unique-validation": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/config": "0.0.36",
+    "@types/mongoose": "^5.5.34",
+    "@types/node": "^12.12.21",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
   }
 }

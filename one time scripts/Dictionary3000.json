@@ -3,7 +3,7 @@
     "description": "The most important words to learn in English",
     "version": "0.0.1",
     "author": "Anton Batalin",
-    "words": [
+    "items": [
         "it is a(n)",
         "entry",
         "type of text",
